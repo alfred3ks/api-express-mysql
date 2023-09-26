@@ -2,7 +2,6 @@
 
 API usando los ESModules.
 
-Variables de entorno: Para subir proyecto: y creacion de app.js
-
+Deploy en reailway:
 
 ## Alfredo Sánchez - @alfred3ks
