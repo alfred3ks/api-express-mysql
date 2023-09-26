@@ -14,6 +14,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/', indexRoutes);
 app.use('/api', employeesRoutes);
 
+// Manejo de errores si la ruta no existe:
+app.use((req, res, next) => {
+  res.status(404).json({ message: 'Endpoint not found.' });
+});
+
 // Arrancamos el servidor:
 const PORT = 3000;
 app.listen(PORT, () => {
