@@ -3,6 +3,7 @@
 import { Router } from 'express';
 import {
   getEmployees,
+  getEmployeeId,
   createEmployees,
   updateEmployees,
   deleteEmployees,
@@ -10,6 +11,7 @@ import {
 
 const router = Router();
 
+router.get('/employees/:id', getEmployeeId);
 router.get('/employees', getEmployees);
 router.post('/employees', createEmployees);
 router.put('/employees', updateEmployees);
