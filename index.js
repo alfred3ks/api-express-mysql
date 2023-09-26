@@ -1,6 +1,13 @@
 import express from 'express';
+import pool from './db.js';
 
 const app = express();
+
+// Hacemos consulta a BD:
+app.get('/ping', async (req, res, next) => {
+  const [result] = await pool.query('select "pong" as result');
+  res.send(result);
+});
 
 // Definimos las rutas de la app:
 app.get('/', (req, res, next) => {

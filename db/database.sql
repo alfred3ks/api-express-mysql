@@ -1,0 +1,12 @@
+DROP DATABASE companydb;
+CREATE DATABASE  IF NOT EXISTS companydb;
+
+USE companydb;
+
+CREATE TABLE employee (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(50) DEFAULT NULL,
+  salary INT(5) DEFAULT NULL
+)
+
+DESCRIBE employee;
