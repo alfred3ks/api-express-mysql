@@ -1,17 +1,12 @@
 import { Router } from 'express';
-import pool from '../db.js';
+import { ping, home } from '../controllers/index.controller.js';
 
 const router = Router();
 
-// Hacemos consulta a BD:
-router.get('/ping', async (req, res, next) => {
-  const [result] = await pool.query('select "pong" as result');
-  res.send(result);
-});
-
 // Definimos las rutas de la app:
-router.get('/', (req, res, next) => {
-  res.send('Home app');
-});
+router.get('/', home);
+
+// Hacemos consulta a BD:
+router.get('/ping', ping);
 
 export default router;

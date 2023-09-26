@@ -1,18 +1,18 @@
+// Routes:
+
 import { Router } from 'express';
+import {
+  getEmployees,
+  createEmployees,
+  updateEmployees,
+  deleteEmployees,
+} from '../controllers/employees.controller.js';
 
 const router = Router();
 
-router.get('/employees', (req, res, next) => {
-  res.send('Solicitando empleados.');
-});
-router.post('/employees', (req, res, next) => {
-  res.send('Creando empleados.');
-});
-router.put('/employees', (req, res, next) => {
-  res.send('Actualizando empleados');
-});
-router.delete('/employees', (req, res, next) => {
-  res.send('Borrando empleados.');
-});
+router.get('/employees', getEmployees);
+router.post('/employees', createEmployees);
+router.put('/employees', updateEmployees);
+router.delete('/employees', deleteEmployees);
 
 export default router;
