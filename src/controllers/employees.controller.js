@@ -20,8 +20,9 @@ export const getEmployeeId = async (req, res) => {
 };
 
 // Middleware de peticion post: Metemos valores a la BD:
+// Usaremos postman o thunder client:
 export const createEmployees = async (req, res) => {
-  // Aqui seria bueno hacer la validadcion:
+  // Aqui seria bueno hacer la validaciones:
   const { name, salary } = req.body;
   const [rows] = await pool.query(
     'INSERT INTO employees (name, salary) VALUES (?, ?)',
@@ -34,6 +35,15 @@ export const updateEmployees = (req, res) => {
   res.send('Actualizando empleados.');
 };
 
-export const deleteEmployees = (req, res) => {
-  res.send('Borrando empleados.');
+// Middleware para borrar datos en la BD, empleados:
+// http://localhost:3000/api/employees/5
+export const deleteEmployees = async (req, res) => {
+  const id = req.params.id;
+  const [result] = await pool.query('DELETE FROM employees WHERE id=?', [id]);
+  console.log(result);
+
+  if (result.affectedRows <= 0) {
+    return res.status(404).send('El empleado no existe.');
+  }
+  res.sendStatus(204);
 };
