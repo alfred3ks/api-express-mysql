@@ -2,7 +2,7 @@
 
 API usando los ESModules.
 
-1:09:36
+Manejo de errores.
 
 
 ## Alfredo Sánchez - @alfred3ks
