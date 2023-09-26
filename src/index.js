@@ -8,8 +8,8 @@ const app = express();
 app.use(express.json());
 
 // Rutas de la app:
-app.use(indexRoutes);
-app.use(employeesRoutes);
+app.use('/', indexRoutes);
+app.use('/api', employeesRoutes);
 
 // Arrancamos el servidor:
 const PORT = 3000;
