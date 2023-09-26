@@ -1,8 +1,11 @@
-import express from 'express';
+import express, { json } from 'express';
 import employeesRoutes from './routes/employees.routes.js';
 import indexRoutes from './routes/index.routes.js';
 
 const app = express();
+
+// Para poder manejar las rutas con el body:
+app.use(express.json());
 
 // Rutas de la app:
 app.use(indexRoutes);
