@@ -7,6 +7,9 @@ const app = express();
 // Para poder manejar las rutas con el body:
 app.use(express.json());
 
+// Con esto cuando recibamos data por el body
+app.use(express.urlencoded({ extended: false }));
+
 // Rutas de la app:
 app.use('/', indexRoutes);
 app.use('/api', employeesRoutes);

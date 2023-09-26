@@ -1,7 +1,7 @@
 // Routes:
-
 import { Router } from 'express';
 import {
+  getHome,
   getEmployees,
   getEmployeeId,
   createEmployees,
@@ -11,11 +11,19 @@ import {
 
 const router = Router();
 
-router.get('/employees/:id', getEmployeeId);
+router.get('/', getHome);
+
 router.get('/employees', getEmployees);
+router.get('/employees/:id', getEmployeeId);
+
 router.post('/employees', createEmployees);
-router.put('/employees', updateEmployees);
-router.delete('/employees', deleteEmployees);
+
+/*
+.patch():
+Esta peticion hace lo mismo que put pero solo pasamos lo que vamos a actualizar con put tenemos que pasar todo el objeto, si no lo hacemos los datos que no pasamos los guarda como null, ya que son undefined.
+*/
+router.patch('/employees/:id', updateEmployees);
+
 router.delete('/employees/:id', deleteEmployees);
 
 export default router;
